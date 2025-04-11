@@ -11,14 +11,14 @@ public class LinkedListCycle {
     }
 
     public static boolean hasCycle(ListNode head) {
-        ListNode nospeed = head;
-        ListNode speed = head;
+        ListNode A = head;
+        ListNode B = head;
 
-        while (speed != null && speed.next != null) {
-            nospeed = nospeed.next;
-            speed = speed.next.next;
+        while (B != null && B.next != null) {
+            A = A.next;
+            B = B.next.next;
 
-            if (nospeed == speed) {
+            if (A == B) {
                 return true;
             }
         }
@@ -33,7 +33,7 @@ public class LinkedListCycle {
 
         head.next = node3;
         node3.next = node4;
-        node4.next = node3;  // Creates a cycle
+        node4.next = node3;
 
         System.out.println(hasCycle(head) ? "true" : "false");
     }
